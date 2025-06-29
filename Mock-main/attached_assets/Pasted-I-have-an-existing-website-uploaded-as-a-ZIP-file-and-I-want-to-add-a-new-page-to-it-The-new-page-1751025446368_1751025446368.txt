@@ -1,0 +1,85 @@
+I have an existing website (uploaded as a ZIP file) and I want to add a new page to it. The new page should act as a full-featured **JEE mock test interface**, similar to the NTA exam portal. Here's the detailed functionality I need:
+
+---
+
+## 📄 PAGE NAME:
+mocktest.html
+
+---
+
+## 📁 INTEGRATION:
+Integrate this page into the existing website’s navigation. The rest of the site should remain untouched.
+
+---
+
+## 🧠 CORE FEATURES:
+
+### 🖼️ Interface Layout:
+- Center Area:
+  - Display one question at a time.
+  - Show question number and subject.
+  - Render question text and any images if present.
+- Left Side:
+  - For **MCQ**: Show four options (A, B, C, D). Only one should be selectable for single-correct. Multiple for multi-correct.
+  - For **Numerical**: Instead of options, show an input box.
+  - Below input box, show a **calculator-like keypad** to enter numerical answers.
+- Right Side:
+  - Display all question numbers (grid view).
+  - Each number box color-coded by status:
+    - 🟩 Green: Answered
+    - 🟧 Orange: Not visited / left unanswered
+    - 🟦 Blue: Marked for review
+    - 🟪 Blue with green dot: Marked for review & answered
+- Top Header:
+  - Left: Test Name
+  - Right: Countdown Timer
+  - Option to submit entire test.
+
+### 📚 Subject Tabs:
+- Option to switch between **Physics**, **Chemistry**, **Maths**.
+- Also allow **Single Subject Test** (only show that subject tab if selected).
+
+### 🔁 Navigation Buttons:
+- "Previous" and "Next" buttons to move between questions.
+
+---
+
+## 📥 PDF Upload to Test Generator:
+1. Add an "Upload PDF" button.
+2. When PDF is uploaded, parse questions using a backend or JS library like `pdf.js` or `pdf2json`.
+3. Auto-detect:
+   - Question number
+   - Question type (based on format: 4 options = MCQ, checkboxes = multi-correct, blank = numerical)
+   - Subject (use keyword like “Physics”, “Chemistry”, etc.)
+4. Convert these into test objects and store them in browser/localStorage or backend (if backend exists).
+5. Render questions in the interface dynamically.
+
+---
+
+## 🧪 Submission Buttons for Each Question:
+- Leave
+- Submit
+- Mark for Review
+- Submit + Mark for Review
+
+Each should update the color status of the question number on right panel accordingly.
+
+---
+
+## 💾 Optional Enhancements (if time allows):
+- Auto-save answer in localStorage.
+- Resume test from where left.
+- Export performance (basic analysis) after submission.
+
+---
+
+## ⚙️ Tech Stack Notes:
+- This should work with plain HTML/CSS/JS or use React.js if the site is already in it.
+- If backend is used, use Node.js or Python Flask.
+- Use `pdf.js` or similar to extract questions from uploaded PDFs.
+
+---
+
+Once implemented, this page should look and behave like the official NTA JEE test environment, with added flexibility to take subject-wise tests and convert PDFs to mock tests.
+
+Let me know if you need the structure of the ZIP or access to the current site code to align better with the style.
